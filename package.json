@@ -1,0 +1,45 @@
+{
+	"name": "tim-website",
+	"version": "1.0.0",
+	"private": true,
+	"description": "Source code for Tim Oetjen's website.",
+	"keywords": [
+		"website"
+	],
+	"homepage": "https://github.com/germanfrelo/tim-website#readme",
+	"bugs": {
+		"url": "https://github.com/germanfrelo/tim-website/issues"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/germanfrelo/tim-website.git"
+	},
+	"license": "ISC",
+	"author": "Germán Freixinós López",
+	"type": "module",
+	"main": "",
+	"scripts": {
+		"format": "prettier --write .",
+		"format:check": "prettier --check .",
+		"lint:css": "stylelint --max-warnings 0 \"**/*.css\"",
+		"lint:css:fix": "npm run lint:css -- --fix",
+		"prepare": "husky"
+	},
+	"lint-staged": {
+		"*.css": [
+			"stylelint --max-warnings 0",
+			"prettier --write"
+		],
+		"!(*.css)": [
+			"prettier --write --ignore-unknown"
+		]
+	},
+	"devDependencies": {
+		"husky": "9.0.11",
+		"lint-staged": "15.2.7",
+		"prettier": "3.3.2",
+		"stylelint": "16.6.1",
+		"stylelint-config-recess-order": "5.0.1",
+		"stylelint-config-standard": "36.0.0"
+	}
+}
