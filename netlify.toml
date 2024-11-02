@@ -1,0 +1,55 @@
+# BUILD SETTINGS
+
+[build]
+publish = "/"
+command = ""
+
+# REDIRECTS
+
+# Netlify default subdomain
+
+[[redirects]]
+from = "https://timoetjen-website.netlify.app/*"
+to = "https://traductorautonomo.es/:splat"
+status = 301
+force = true
+
+# Custom domains
+
+# Primary domain is traductorautonomo.es; there is no need to redirect www.traductorautonomo.es because Netlify already redirects automatically between the apex domain and www subdomain
+
+[[redirects]]
+from = "https://www.traductorautonomo.com/*"
+to = "https://traductorautonomo.es/:splat"
+status = 301
+force = true
+
+[[redirects]]
+from = "https://traductorautonomo.com/*"
+to = "https://traductorautonomo.es/:splat"
+status = 301
+force = true
+
+[[redirects]]
+from = "https://www.traducteurindependant.com/*"
+to = "https://traductorautonomo.es/:splat"
+status = 301
+force = true
+
+[[redirects]]
+from = "https://traducteurindependant.com/*"
+to = "https://traductorautonomo.es/:splat"
+status = 301
+force = true
+
+[[redirects]]
+from = "https://www.traducteurindependant.fr/*"
+to = "https://traductorautonomo.es/:splat"
+status = 301
+force = true
+
+[[redirects]]
+from = "https://traducteurindependant.fr/*"
+to = "https://traductorautonomo.es/:splat"
+status = 301
+force = true
