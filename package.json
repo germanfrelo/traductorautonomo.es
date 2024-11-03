@@ -21,6 +21,8 @@
 	"scripts": {
 		"format": "prettier --write .",
 		"format:check": "prettier --check .",
+		"lint": "npm run lint:css && npm run lint:md",
+		"lint:fix": "npm run lint:css:fix && npm run lint:md:fix",
 		"lint:css": "stylelint --max-warnings 0 \"**/*.css\"",
 		"lint:css:fix": "npm run lint:css -- --fix",
 		"lint:md": "markdownlint-cli2",
