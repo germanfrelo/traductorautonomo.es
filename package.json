@@ -23,6 +23,8 @@
 		"format:check": "prettier --check .",
 		"lint:css": "stylelint --max-warnings 0 \"**/*.css\"",
 		"lint:css:fix": "npm run lint:css -- --fix",
+		"lint:md": "markdownlint-cli2",
+		"lint:md:fix": "npm run lint:md -- --fix",
 		"prepare": "husky"
 	},
 	"lint-staged": {
@@ -30,13 +32,17 @@
 			"stylelint --max-warnings 0",
 			"prettier --write"
 		],
-		"!(*.css)": [
+		"*.md": [
+			"markdownlint-cli2 --fix"
+		],
+		"!(*.css|*.md)": [
 			"prettier --write --ignore-unknown"
 		]
 	},
 	"devDependencies": {
 		"husky": "9.1.6",
 		"lint-staged": "15.2.10",
+		"markdownlint-cli2": "0.14.0",
 		"prettier": "3.3.3",
 		"stylelint": "16.10.0",
 		"stylelint-config-recess-order": "5.1.1",
