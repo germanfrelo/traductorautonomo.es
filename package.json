@@ -1,21 +1,21 @@
 {
-	"name": "tim-website",
+	"name": "traductorautonomo.es",
 	"version": "1.0.0",
 	"private": true,
-	"description": "Source code for Tim Oetjen's website.",
+	"description": "Source code for traductorautonomo.es.",
 	"keywords": [
 		"website"
 	],
-	"homepage": "https://github.com/germanfrelo/tim-website#readme",
+	"homepage": "https://github.com/germanfrelo/traductorautonomo.es#readme",
 	"bugs": {
-		"url": "https://github.com/germanfrelo/tim-website/issues"
+		"url": "https://github.com/germanfrelo/traductorautonomo.es/issues"
 	},
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/germanfrelo/tim-website.git"
+		"url": "https://github.com/germanfrelo/traductorautonomo.es.git"
 	},
-	"license": "ISC",
-	"author": "Germán Freixinós López",
+	"license": "MIT",
+	"author": "Germán Freixinós",
 	"type": "module",
 	"main": "",
 	"scripts": {
