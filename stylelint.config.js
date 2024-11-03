@@ -121,7 +121,7 @@ export default {
 			true,
 			{
 				"severity": "warning",
-				"accidental-hover": false, // Unncecessary
+				"accidental-hover": false, // Unnecessary
 				"background-repeat": false, // Solved in linked base.css stylesheet
 				"custom-property-fallbacks": true,
 				"flex-wrapping": true,

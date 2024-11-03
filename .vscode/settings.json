@@ -1,4 +1,8 @@
 {
+	// Formatting
+	"editor.defaultFormatter": "esbenp.prettier-vscode",
+	"editor.formatOnSave": true,
+
 	// Lint CSS with Stylelint
 	// Disable VS Code's built-in linters to prevent them from reporting the same errors as Stylelint
 	"stylelint.enable": true, // default
