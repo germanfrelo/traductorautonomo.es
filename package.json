@@ -14,8 +14,8 @@
 		"type": "git",
 		"url": "https://github.com/germanfrelo/traductorautonomo.es.git"
 	},
-	"license": "ISC",
-	"author": "Germán Freixinós López",
+	"license": "MIT",
+	"author": "Germán Freixinós",
 	"type": "module",
 	"main": "",
 	"scripts": {
