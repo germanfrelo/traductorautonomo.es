@@ -9,7 +9,7 @@ command = ""
 # Netlify default subdomain
 
 [[redirects]]
-from = "https://timoetjen-website.netlify.app/*"
+from = "https://traductorautonomo.netlify.app/*"
 to = "https://traductorautonomo.es/:splat"
 status = 301
 force = true
