@@ -19,6 +19,11 @@
 	"type": "module",
 	"main": "",
 	"scripts": {
+		"dev": "astro dev",
+		"start": "astro dev",
+		"build": "astro build",
+		"preview": "astro preview",
+		"astro": "astro",
 		"format": "prettier --write .",
 		"format:check": "prettier --check .",
 		"lint": "npm run lint:css && npm run lint:md",
@@ -40,6 +45,12 @@
 		"!(*.css|*.md)": [
 			"prettier --write --ignore-unknown"
 		]
+	},
+	"dependencies": {
+		"@astrojs/mdx": "3.1.8",
+		"@astrojs/rss": "4.0.9",
+		"@astrojs/sitemap": "3.2.1",
+		"astro": "4.16.7"
 	},
 	"devDependencies": {
 		"husky": "9.1.6",

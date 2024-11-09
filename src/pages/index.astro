@@ -1,15 +1,14 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+---
+
 <!doctype html>
 <html lang="fr-FR">
 	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Traducteur indépendant - Tim Oetjen - Traduction EN / NL / ES &gt; FR</title>
-		<link rel="stylesheet" href="/styles.css" />
-		<meta name="author" content="Tim Oetjen" />
-		<meta name="description" content="Traducteur indépendant de confiance pour gérer tous tes projets de traduction de l&#39;anglais, du néerlandais, de l&#39;espagnol et de l&#39;allemand vers le français." />
-		<meta name="color-scheme" content="light dark" />
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
 	</head>
-
 	<body>
 		<main class="flow wrapper site-main">
 			<h1>Traducteur indépendant</h1>
@@ -103,9 +102,6 @@
 				</li>
 			</ul>
 		</main>
-
-		<footer class="flow site-footer">
-			<p>Tim Oetjen – Traducteur indépendant</p>
-		</footer>
+		<Footer />
 	</body>
 </html>
