@@ -7,8 +7,15 @@
 
 # --------------------------------------------------------------------------------
 
-# Created by https://www.toptal.com/developers/gitignore/api/git,node
-# Edit at https://www.toptal.com/developers/gitignore?templates=git,node
+# Created by https://www.toptal.com/developers/gitignore/api/git,node,astro
+# Edit at https://www.toptal.com/developers/gitignore?templates=git,node,astro
+
+### Astro ###
+# Gitignore template for Astro projects
+# build output
+dist/
+# generated types
+.astro/
 
 ### Git ###
 # Created by git for backups. To disable backups in Git:
@@ -165,4 +172,4 @@ dist
 # SvelteKit build / generate output
 .svelte-kit
 
-# End of https://www.toptal.com/developers/gitignore/api/git,node
+# End of https://www.toptal.com/developers/gitignore/api/git,node,astro
