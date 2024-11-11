@@ -5,6 +5,7 @@
 		"esbenp.prettier-vscode",
 		// Linting
 		"DavidAnson.vscode-markdownlint",
+		"dbaeumer.vscode-eslint",
 		"stylelint.vscode-stylelint",
 		// Astro
 		"astro-build.astro-vscode",
