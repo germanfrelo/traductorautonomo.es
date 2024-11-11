@@ -28,21 +28,21 @@
 		"format:check": "prettier --check .",
 		"lint": "npm run lint:css && npm run lint:md",
 		"lint:fix": "npm run lint:css:fix && npm run lint:md:fix",
-		"lint:css": "stylelint --max-warnings 0 \"**/*.css\"",
+		"lint:css": "stylelint --formatter verbose --max-warnings 0 \"**/*.{astro,css,html}\"",
 		"lint:css:fix": "npm run lint:css -- --fix",
 		"lint:md": "markdownlint-cli2",
 		"lint:md:fix": "npm run lint:md -- --fix",
 		"prepare": "husky"
 	},
 	"lint-staged": {
-		"*.css": [
+		"(*.astro|*.css|*.html)": [
 			"stylelint --max-warnings 0",
 			"prettier --write"
 		],
 		"*.md": [
 			"markdownlint-cli2 --fix"
 		],
-		"!(*.css|*.md)": [
+		"!(*.astro|*.css|*.html|*.js|*.md)": [
 			"prettier --write --ignore-unknown"
 		]
 	},
@@ -53,9 +53,11 @@
 		"husky": "9.1.6",
 		"lint-staged": "15.2.10",
 		"markdownlint-cli2": "0.15.0",
+		"postcss-html": "1.7.0",
 		"prettier": "3.3.3",
 		"prettier-plugin-astro": "0.14.1",
 		"stylelint": "16.10.0",
+		"stylelint-config-html": "1.1.0",
 		"stylelint-config-recess-order": "5.1.1",
 		"stylelint-config-standard": "36.0.1",
 		"stylelint-plugin-defensive-css": "1.0.4"
