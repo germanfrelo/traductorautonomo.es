@@ -3,7 +3,7 @@
 	"quoteProps": "consistent",
 	"overrides": [
 		{
-			"files": ["*.html", "*.css"],
+			"files": ["*.html", "*.css", "*.astro"],
 			"options": {
 				"printWidth": 9999
 			}
