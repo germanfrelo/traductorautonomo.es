@@ -122,12 +122,12 @@ export default {
 			true,
 			{
 				"severity": "warning",
-				"accidental-hover": false, // Unnecessary
-				"background-repeat": false, // Solved in linked base.css stylesheet
-				"custom-property-fallbacks": true,
+				"accidental-hover": false,
+				"background-repeat": false, // Already solved in imported base.css stylesheet
+				"custom-property-fallbacks": false,
 				"flex-wrapping": true,
 				"scroll-chaining": true,
-				"scrollbar-gutter": false, // TODO: Check browser support (~78% in Oct. 2024)
+				"scrollbar-gutter": false, // TODO: Check browser support at caniuse.com (~78% in Nov. 2024)
 				"vendor-prefix-grouping": true,
 			},
 		],

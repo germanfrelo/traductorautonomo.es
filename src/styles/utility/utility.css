@@ -1,0 +1,84 @@
+/**
+ * ======================================================================
+ * UTILITY CLASSES
+ *
+ * Based on: https://cube.fyi/utility.html
+ * ======================================================================
+ */
+
+/**
+ * ----------------------------------------------------------------------
+ * Layout Alignment
+ * ----------------------------------------------------------------------
+ */
+
+/* .is-layout-constrained,
+	.alignfull {
+		display: grid;
+		grid-template-columns: [full-width-start] 1rem [wide-width-start] 10rem [content-width-start] min(var(--max-content-size), 1fr) [content-width-end] 10rem [wide-width-end] 1rem [full-width-end];
+	}
+
+	.is-layout-constrained > .alignfull {
+		grid-column: full-width;
+	}
+
+	.is-layout-constrained > .alignwide {
+		grid-column: wide-width;
+	}
+
+	.is-layout-constrained > :not(.alignfull, .alignwide),
+	.alignfull > :not(.alignfull, .alignwide) {
+		grid-column: content-width;
+	} */
+
+.constrained > :not(.constrained__full) {
+	max-inline-size: var(--max-content-size);
+	margin-inline: auto;
+}
+
+.constrained > .constrained__wide {
+	max-inline-size: var(--max-wide-size);
+}
+
+/**
+ * ----------------------------------------------------------------------
+ * Full-Width Background
+ * ----------------------------------------------------------------------
+ */
+
+.full-background {
+	--full-bg-color: transparent;
+	border-image: conic-gradient(var(--full-bg-color, transparent) 0 0) fill 0 / 0 / 0 100vw;
+}
+
+.full-background-slanted {
+	--full-bg-color: transparent;
+	--angle: 2deg; /* it should be small */
+	clip-path: polygon(-9999px calc(tan(var(--angle, 0)) * 9999px), 9999px calc(tan(var(--angle, 0)) * -9999px), calc(100% + 9999px) calc(100% - tan(var(--angle, 0)) * 9999px), calc(100% - 9999px) calc(100% + tan(var(--angle, 0)) * 9999px));
+	border-image: conic-gradient(var(--full-bg-color, transparent) 0 0) fill 0 / 0 / 9999px;
+}
+
+/**
+ * ----------------------------------------------------------------------
+ * Visually Hidden
+ * ----------------------------------------------------------------------
+ */
+
+.visually-hidden {
+	position: absolute !important;
+	width: 1px !important;
+	height: 1px !important;
+	padding: 0 !important;
+	margin: -1px !important;
+	overflow: hidden !important;
+
+	/* legacy browsers */
+	clip: rect(1px, 1px, 1px, 1px);
+
+	/* modern browsers */
+	clip-path: inset(50%);
+
+	/* added line to stop words getting smushed together (as they go onto separate lines and some screen readers do not understand line feeds as a space */
+	white-space: nowrap;
+	border: 0 !important;
+}
