@@ -53,12 +53,12 @@ export default {
 			true,
 			{
 				"severity": "warning",
-				"accidental-hover": false, // Enable as needed
-				"background-repeat": false, // The imported CSS reset already apply 'no-repeat' to all elements
-				"custom-property-fallbacks": true,
+				"accidental-hover": false,
+				"background-repeat": false, // Already solved in imported base.css stylesheet
+				"custom-property-fallbacks": false,
 				"flex-wrapping": true,
 				"scroll-chaining": true,
-				"scrollbar-gutter": false, // Enable as needed
+				"scrollbar-gutter": false, // TODO: Check browser support at caniuse.com (~78% in Nov. 2024)
 				"vendor-prefix-grouping": true,
 			},
 		],

@@ -1,80 +1,122 @@
 ---
-import BaseHead from "../components/BaseHead.astro";
-import Footer from "../components/Footer.astro";
-import Header from "../components/Header.astro";
+import { Image } from "astro:assets";
+import heroImage from "../assets/images/photo-profile.webp";
+import Layout from "../layouts/Layout.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 ---
 
-<!doctype html>
-<html lang="fr-FR">
-	<head>
-		<BaseHead
-			title={SITE_TITLE}
-			description={SITE_DESCRIPTION}
-		/>
-	</head>
-	<body>
-		<!-- <Header /> -->
-		<main class="flow wrapper site-main">
-			<h1>Traducteur indépendant</h1>
-
-			<p>Bonjour, je suis Tim, traducteur indépendant B2B. Depuis plus de 8&nbsp;ans, je traduis des documents de l’anglais, du néerlandais et de l’espagnol vers le français (de France et de Belgique) pour des clients européens et internationaux.</p>
-
-			<p>
-				<a
-					href="https://www.linkedin.com/in/timoetjen/"
-					rel="external noopener"
-					>LinkedIn</a
+<Layout
+	title={SITE_TITLE}
+	description={SITE_DESCRIPTION}
+>
+	<main class="prose constrained">
+		<div
+			class="constrained__wide region full-background-slanted switcher hero"
+			data-wrap-reverse
+			data-wrapper-size="wide"
+		>
+			<div class="flow">
+				<h1>Traducteur indépendant</h1>
+				<p>Bonjour, je suis Tim, traducteur indépendant B2B. Depuis plus de 8&nbsp;ans, je traduis des documents de l’anglais, du néerlandais et de l’espagnol vers le français (de France et de Belgique) pour des clients européens et internationaux.</p>
+				<ul
+					class="cluster"
+					role="list"
 				>
-			</p>
+					<li>
+						<a
+							href="mailto:tim@traductorautonomo.es"
+							rel="external noopener"
+							class="button"
+							data-button-variant="primary"
+							>E-mail</a
+						>
+					</li>
+					<li>
+						<a
+							href="https://www.linkedin.com/in/timoetjen/"
+							rel="external noopener"
+							class="button"
+							data-button-variant="primary"
+							>LinkedIn</a
+						>
+					</li>
+				</ul>
+			</div>
+			<Image
+				src={heroImage}
+				alt=""
+				width="768"
+				height="1024"
+			/>
+		</div>
 
+		<div class="stack region full-background-slanted">
 			<h2 id="projets">Projets</h2>
+			<div class="flow">
+				<p>Mes projets concernent généralement&nbsp;:</p>
+				<ul>
+					<li>Des descriptions de produits pour de grandes entreprises du secteur du commerce électronique&nbsp;;</li>
+					<li>De la documentation technique et des documents relatifs à la sécurité, comme des manuels d’instructions&nbsp;;</li>
+					<li>Des formations en ligne&nbsp;;</li>
+					<li>Des sites web&nbsp;;</li>
+					<li>Tous types de textes, à l’exception des textes médicaux et juridiques.</li>
+				</ul>
+			</div>
+		</div>
 
-			<p>Mes projets concernent généralement&nbsp;:</p>
-			<ul>
-				<li>Des descriptions de produits pour de grandes entreprises du secteur du commerce électronique&nbsp;;</li>
-				<li>De la documentation technique et des documents relatifs à la sécurité, comme des manuels d’instructions&nbsp;;</li>
-				<li>Des formations en ligne&nbsp;;</li>
-				<li>Des sites web&nbsp;;</li>
-				<li>Tous types de textes, à l’exception des textes médicaux et juridiques.</li>
-			</ul>
-
+		<div class="stack region full-background-slanted">
 			<h2 id="combinaisons-linguistiques">Combinaisons linguistiques</h2>
+			<div class="flow">
+				<ul>
+					<li>Anglais &gt; Français</li>
+					<li>Néerlandais &gt; Français</li>
+					<li>Espagnol &gt; Français</li>
+				</ul>
+			</div>
+		</div>
 
-			<ul>
-				<li>Anglais &gt; Français</li>
-				<li>Néerlandais &gt; Français</li>
-				<li>Espagnol &gt; Français</li>
-			</ul>
-
+		<div class="stack region full-background-slanted">
 			<h2 id="services">Services</h2>
 
-			<h3>Traductions générales</h3>
-			<p>Vous avez besoin de traduire un document sans spécialisation particulière&nbsp;? Je traduis des textes dans tous les secteurs.</p>
+			<div class="flow">
+				<h3 class="h4">Traductions générales</h3>
+				<p>Vous avez besoin de traduire un document sans spécialisation particulière&nbsp;? Je traduis des textes dans tous les secteurs.</p>
+			</div>
 
-			<h3>Traductions urgentes</h3>
-			<p>Vous recherchez un traducteur indépendant rapide et efficace&nbsp;? J’adapte mes horaires pour répondre au mieux à vos besoins, y compris le week-end.</p>
+			<div class="flow">
+				<h3 class="h4">Traductions urgentes</h3>
+				<p>Vous recherchez un traducteur indépendant rapide et efficace&nbsp;? J’adapte mes horaires pour répondre au mieux à vos besoins, y compris le week-end.</p>
+			</div>
 
-			<h3>Sous-titrage et transcription</h3>
-			<p>Vous voulez toucher un public plus large avec vos vidéos, podcasts, émissions ou documentaires&nbsp;? La traduction est la solution.</p>
+			<div class="flow">
+				<h3 class="h4">Sous-titrage et transcription</h3>
+				<p>Vous voulez toucher un public plus large avec vos vidéos, podcasts, émissions ou documentaires&nbsp;? La traduction est la solution.</p>
+			</div>
 
-			<h3>Traductions techniques</h3>
-			<p>Les rapports, formations et autres n’ont plus de secrets pour moi. Vos clients prendront peut-être même la peine de lire votre mode d’emploi s’il est bien traduit.</p>
+			<div class="flow">
+				<h3 class="h4">Traductions techniques</h3>
+				<p>Les rapports, formations et autres n’ont plus de secrets pour moi. Vos clients prendront peut-être même la peine de lire votre mode d’emploi s’il est bien traduit.</p>
+			</div>
 
-			<h3>Descriptions de produits</h3>
-			<p>Démarquez-vous avec des descriptions de produits intelligibles pour convaincre vos clients potentiels plus facilement et maximiser vos ventes.</p>
+			<div class="flow">
+				<h3 class="h4">Descriptions de produits</h3>
+				<p>Démarquez-vous avec des descriptions de produits intelligibles pour convaincre vos clients potentiels plus facilement et maximiser vos ventes.</p>
+			</div>
 
-			<h3>Autres services</h3>
-			<p>Outre les services ci-dessus, je propose également les services suivants&nbsp;:</p>
-			<ul>
-				<li>Post-édition</li>
-				<li>Localisation</li>
-				<li>Gestion de terminologie et de glossaires</li>
-			</ul>
+			<div class="flow">
+				<h3 class="h4">Autres services</h3>
+				<p>Outre les services ci-dessus, je propose également les services suivants&nbsp;:</p>
+				<ul>
+					<li>Post-édition</li>
+					<li>Localisation</li>
+					<li>Gestion de terminologie et de glossaires</li>
+				</ul>
+			</div>
+		</div>
 
+		<div class="stack region full-background-slanted">
 			<h2 id="références">Références</h2>
-
-			<div class="l-stack-xxl">
+			<div class="stack">
 				<figure class="flow">
 					<blockquote>
 						<p>«&nbsp;C’est un véritable plaisir de travailler avec Tim sur des traductions techniques de l’anglais au français. Il est extrêmement réactif aux différentes demandes et s’adapte aux multiples contraintes techniques, de délais, et aux exigences spécifiques des clients, toujours avec une grande gentillesse qui rend la collaboration particulièrement agréable. Merci !&nbsp;»</p>
@@ -90,12 +132,14 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 						</b>
 					</figcaption>
 				</figure>
+
 				<figure class="flow">
 					<blockquote>
 						<p>«&nbsp;C’est un plaisir de travailler avec Tim. Ses traductions sont toujours impeccables et ponctuelles, et sa touche personnelle ne pourrait être meilleure. Tim est une personne joyeuse toujours prête à donner un coup de main.&nbsp;»</p>
 					</blockquote>
 					<figcaption><b>Traductrice indépendante</b></figcaption>
 				</figure>
+
 				<figure class="flow">
 					<blockquote>
 						<p>«&nbsp;Tim est une personne avec laquelle il est très agréable de travailler. Il est très compétent et la qualité de son travail de traduction est toujours extrêmement élevée et irréprochable. Il livre les produits/services de localisation requis dans les délais impartis et il est toujours prêt à négocier et/ou à faire des efforts supplémentaires si nécessaire. Il n’y a aucune difficulté que Tim ne puisse surmonter. La communication avec Tim est rapide et professionnelle, toujours dans une bonne ambiance et avec beaucoup de bonne volonté. Je recommande vivement de travailler avec lui et je me réjouis de travailler avec lui à l’avenir. Tim fait partie de ces personnes qui vous donnent le sourire dans vos conversations quotidiennes et qui embellissent votre journée de travail en la rendant plus que "simplement" professionnelle.&nbsp;»</p>
@@ -103,14 +147,20 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 					<figcaption><b>Project Manager</b></figcaption>
 				</figure>
 			</div>
+		</div>
 
+		<div class="stack region full-background-slanted">
 			<h2 id="contact">Contact</h2>
-
-			<ul class="flow">
+			<ul
+				class="cluster"
+				role="list"
+			>
 				<li>
 					<a
 						href="mailto:tim@traductorautonomo.es"
 						rel="external noopener"
+						class="button"
+						data-button-variant="primary"
 						>E-mail</a
 					>
 				</li>
@@ -118,11 +168,12 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 					<a
 						href="https://www.linkedin.com/in/timoetjen/"
 						rel="external noopener"
+						class="button"
+						data-button-variant="primary"
 						>LinkedIn</a
 					>
 				</li>
 			</ul>
-		</main>
-		<Footer />
-	</body>
-</html>
+		</div>
+	</main>
+</Layout>

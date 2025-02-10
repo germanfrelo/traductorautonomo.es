@@ -1,0 +1,233 @@
+/**
+ * ======================================================================
+ * COMPOSITION: LAYOUT PRIMITIVES
+ *
+ * Sorted by name in alphabetical order.
+ *
+ * References:
+ * - https://cube.fyi/composition.html
+ * - https://every-layout.dev/layouts/
+ * ======================================================================
+ */
+
+/**
+ * ----------------------------------------------------------------------
+ * Cluster
+ * ----------------------------------------------------------------------
+ */
+
+[class*="cluster"] {
+	display: flex;
+	flex-direction: var(--cluster-direction, row);
+	flex-wrap: var(--cluster-wrap, wrap);
+	row-gap: var(--cluster-row-gap, var(--gutter, var(--space-s-m)));
+	column-gap: var(--cluster-column-gap, var(--gutter, var(--space-s-m)));
+	align-items: var(--cluster-vertical-alignment, flex-start);
+	justify-content: var(--cluster-horizontal-alignment, flex-start);
+}
+
+/**
+ * ----------------------------------------------------------------------
+ * Flow
+ * ----------------------------------------------------------------------
+ */
+
+.flow > * + * {
+	margin-block-start: var(--flow-space, 1.5em);
+}
+
+/**
+ * ----------------------------------------------------------------------
+ * Grid
+ * ----------------------------------------------------------------------
+ */
+
+.grid {
+	display: grid;
+	grid-template-columns: repeat(var(--grid-placement, auto-fill), minmax(var(--grid-min-item-size, 16rem), 1fr));
+	gap: var(--gutter, var(--space-s-l));
+}
+
+.grid[data-layout="halves"] {
+	--grid-placement: auto-fit;
+	--grid-min-item-size: clamp(16rem, 50vw, 33rem);
+}
+
+.grid[data-layout="thirds"] {
+	--grid-placement: auto-fit;
+	--grid-min-item-size: clamp(16rem, 33%, 20rem);
+}
+
+/* TODO: Check if this works */
+
+/* @supports (width: min(var(--grid-min-item-size), 100%)) {
+	.grid {
+		grid-template-columns: repeat(var(--grid-placement, auto-fit), minmax(min(var(--grid-min-item-size, 20ch), 100%), 1fr));
+	}
+} */
+
+/**
+ * ----------------------------------------------------------------------
+ * Reel
+ *
+ * @link https://every-layout.dev/layouts/reel/
+ * ----------------------------------------------------------------------
+ */
+
+.reel {
+	--reel-calculated-space: var(--reel-space, var(--gutter, 2rem));
+	display: flex;
+	flex-wrap: nowrap;
+	max-inline-size: 100%;
+	block-size: auto;
+	padding-block-end: var(--scroll-bar-offset, 0);
+	margin-inline: auto;
+	overflow-x: auto;
+	overflow-y: hidden;
+	overscroll-behavior: contain;
+}
+
+.reel > * {
+	flex-shrink: 0;
+	flex-basis: var(--reel-item-width, calc(33.333% - var(--reel-calculated-space)));
+}
+
+.reel > * + * {
+	margin-inline-start: var(--reel-calculated-space);
+}
+
+.reel: :-webkit-scrollbar {
+	block-size: var(--scroll-bar-size);
+}
+
+.reel::-webkit-scrollbar-track {
+	background-color: var(--scroll-bar-track-color);
+}
+
+.reel::-webkit-scrollbar-thumb {
+	background-color: var(--scroll-bar-thumb-color);
+}
+
+.reel[data-scroll="snap"] {
+	scroll-snap-type: x mandatory;
+}
+
+.reel[data-scroll="snap"] > * {
+	scroll-snap-align: start;
+}
+
+/**
+ * ----------------------------------------------------------------------
+ * Repel
+ * ----------------------------------------------------------------------
+ */
+
+.repel {
+	display: flex;
+	flex-direction: var(--repel-direction, row);
+	flex-wrap: var(--repel-wrap, wrap);
+	row-gap: var(--repel-row-gap, var(--gutter, var(--space-s-m)));
+	column-gap: var(--repel-column-gap, var(--gutter, var(--space-s-m)));
+	align-items: var(--repel-vertical-alignment, center);
+	justify-content: var(--repel-horizontal-alignment, space-between);
+}
+
+.repel[data-nowrap] {
+	flex-wrap: nowrap;
+}
+
+/**
+ * ----------------------------------------------------------------------
+ * Sidebar
+ *
+ * @link https://every-layout.dev/layouts/sidebar/
+ * ----------------------------------------------------------------------
+ */
+
+.sidebar {
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--gutter, var(--space-s-l));
+}
+
+.sidebar:not([data-direction]) > :first-child,
+.sidebar[data-direction="rtl"] > :last-child {
+	flex-grow: 1;
+	flex-basis: var(--sidebar-target-width, 20rem);
+}
+
+.sidebar:not([data-direction]) > :last-child,
+.sidebar[data-direction="rtl"] > :first-child {
+	flex-grow: 999;
+	flex-basis: 0;
+	min-width: var(--sidebar-content-min-width, 50%);
+}
+
+/**
+ * ----------------------------------------------------------------------
+ * Stack
+ * ----------------------------------------------------------------------
+ */
+
+.stack {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+}
+
+.stack > * {
+	margin-block: 0;
+}
+
+.stack > * + * {
+	margin-block-start: var(--stack-space, var(--gutter, var(--space-m-l)));
+}
+
+/**
+ * ----------------------------------------------------------------------
+ * Switcher
+ *
+ * With this current implementation, the maximum number of elements allowed to appear in the horizontal configuration is 2.
+ *
+ * @param {string} - The container width at which the component switches between a horizontal and vertical layout.
+ *
+ * @see {@link https://every-layout.dev/layouts/switcher/}
+ * ----------------------------------------------------------------------
+ */
+
+.switcher {
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--switcher-gap, var(--gutter, var(--space-s-l)));
+	align-items: var(--switcher-vertical-alignment, flex-start);
+}
+
+.switcher > * {
+	flex-grow: 1;
+	flex-basis: calc((var(--switcher-target-container-width, 40rem) - 100%) * 999);
+	flex-basis: var(--switcher-threshold, 24rem);
+}
+
+.switcher > :nth-child(n + 3) {
+	flex-basis: 100%;
+}
+
+.switcher[data-wrap-reverse] {
+	flex-wrap: wrap-reverse;
+}
+
+/**
+ * ----------------------------------------------------------------------
+ * Wrapper
+ * ----------------------------------------------------------------------
+ */
+
+/* .wrapper {
+		max-inline-size: var(--max-content-size);
+		padding-inline: var(--gutter);
+		margin-inline: auto;
+	}
+
+	.wrapper[data-wrapper-size="wide"] {
+		max-inline-size: var(--max-wide-size);
+	} */
