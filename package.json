@@ -17,13 +17,10 @@
 	"license": "MIT",
 	"author": "Germán Freixinós",
 	"type": "module",
-	"main": "",
 	"scripts": {
-		"dev": "astro dev",
-		"start": "astro dev",
-		"build": "astro build",
-		"preview": "astro preview",
 		"astro": "astro",
+		"build": "astro build",
+		"dev": "astro dev",
 		"format": "prettier --write .",
 		"format:check": "prettier --check .",
 		"lint": "npm run lint:css && npm run lint:md",
@@ -32,7 +29,8 @@
 		"lint:css:fix": "npm run lint:css -- --fix",
 		"lint:md": "markdownlint-cli2",
 		"lint:md:fix": "npm run lint:md -- --fix",
-		"prepare": "husky"
+		"prepare": "husky",
+		"preview": "astro preview"
 	},
 	"lint-staged": {
 		"(*.astro|*.css|*.html)": [

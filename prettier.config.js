@@ -5,17 +5,23 @@
  * @type {import("prettier").Config}
  */
 const config = {
-	plugins: ["prettier-plugin-astro"],
+	plugins: ["prettier-plugin-astro"], // Ref: https://docs.astro.build/en/editor-setup/#prettier
 	quoteProps: "consistent",
 	overrides: [
 		{
-			files: ["*.html", "*.css", "*.astro"],
+			files: "*.astro",
+			options: {
+				parser: "astro",
+			},
+		},
+		{
+			files: ["*.astro", "*.css", "*.html"],
 			options: {
 				printWidth: 9999,
 			},
 		},
 		{
-			files: ["*.js", "*.jsx", "*.vue"],
+			files: ["*.astro", "*.js", "*.jsx", "*.vue"],
 			options: {
 				singleAttributePerLine: true,
 			},
@@ -24,12 +30,6 @@ const config = {
 			files: ["*.jsonc"],
 			options: {
 				trailingComma: "none",
-			},
-		},
-		{
-			files: "*.astro",
-			options: {
-				parser: "astro",
 			},
 		},
 	],
