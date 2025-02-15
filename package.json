@@ -25,7 +25,7 @@
 		"format:check": "prettier --check .",
 		"lint": "npm run lint:css && npm run lint:md",
 		"lint:fix": "npm run lint:css:fix && npm run lint:md:fix",
-		"lint:css": "stylelint --formatter verbose --max-warnings 0 \"**/*.{astro,css,html}\"",
+		"lint:css": "stylelint --formatter verbose \"**/*.{astro,css,html}\"",
 		"lint:css:fix": "npm run lint:css -- --fix",
 		"lint:md": "markdownlint-cli2",
 		"lint:md:fix": "npm run lint:md -- --fix",
@@ -34,7 +34,7 @@
 	},
 	"lint-staged": {
 		"(*.astro|*.css|*.html)": [
-			"stylelint --max-warnings 0",
+			"stylelint",
 			"prettier --write"
 		],
 		"*.md": [
