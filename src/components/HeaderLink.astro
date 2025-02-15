@@ -10,6 +10,11 @@ const subpath = pathname.match(/[^\/]+/g);
 const isCurrentPage = href === pathname || href === "/" + subpath?.[0];
 ---
 
-<a href={href} class:list={[className]} aria-current={isCurrentPage ? "page" : null} {...props}>
+<a
+	href={href}
+	class:list={[className]}
+	aria-current={isCurrentPage ? "page" : null}
+	{...props}
+>
 	<slot />
 </a>
