@@ -1,21 +1,10 @@
-### Prettier ###
-# By default, Prettier ignores files in:
-# - version control systems directories (".git", ".sl", ".svn" and ".hg")
-# - node_modules
-# Prettier will also follow rules specified in the ".gitignore" file if it exists in the same directory from which it is run.
-# Reference: https://prettier.io/docs/en/ignore.html.
-
-# --------------------------------------------------------------------------------
-
-# Created by https://www.toptal.com/developers/gitignore/api/git,node,astro
-# Edit at https://www.toptal.com/developers/gitignore?templates=git,node,astro
-
 ### Astro ###
-# Gitignore template for Astro projects
-# build output
-dist/
+
 # generated types
 .astro/
+
+# build output
+dist/
 
 ### Git ###
 # Created by git for backups. To disable backups in Git:
