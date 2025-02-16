@@ -48,7 +48,7 @@
 		"astro": "4.16.18"
 	},
 	"devDependencies": {
-		"husky": "9.1.6",
+		"husky": "9.1.7",
 		"lint-staged": "15.2.10",
 		"markdownlint-cli2": "0.15.0",
 		"postcss-html": "1.7.0",
