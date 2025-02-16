@@ -10,6 +10,7 @@ export default {
 	reportDescriptionlessDisables: true,
 	reportInvalidScopeDisables: true,
 	reportNeedlessDisables: true,
+	reportUnscopedDisables: true,
 	rules: {
 		/* Avoid errors
 		---------------------------------------- */
