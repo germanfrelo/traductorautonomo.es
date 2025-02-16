@@ -2,8 +2,8 @@
 export default {
 	extends: [
 		// The order of configs is important: later configs take precedence over earlier ones
+		"stylelint-config-html/astro", // Enables .astro syntax parsing
 		"stylelint-config-standard", // Extends stylelint-config-recommended and turns on additional rules to enforce modern conventions
-		"stylelint-config-html", // Enables .astro syntax parsing
 		"stylelint-config-recess-order", // Sorts CSS properties
 	],
 	plugins: ["stylelint-plugin-defensive-css"], // Enforces defensive CSS best practices
