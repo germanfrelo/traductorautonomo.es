@@ -12,12 +12,7 @@
 	"stylelint.validate": [
 		"css", // default
 		"postcss", // default
-		"astro",
-		"html",
-		"php",
-		"svelte",
-		"vue",
-		"xml"
+		"astro"
 	],
 	// Disable VS Code's built-in linters to prevent them from reporting the same errors as Stylelint
 	"css.validate": false,
