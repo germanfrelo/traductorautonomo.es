@@ -25,7 +25,7 @@
 		"format:check": "prettier --check .",
 		"lint": "npm run lint:css && npm run lint:md",
 		"lint:fix": "npm run lint:css:fix && npm run lint:md:fix",
-		"lint:css": "stylelint --formatter verbose --max-warnings 0 \"**/*.{astro,css,html}\"",
+		"lint:css": "stylelint --formatter verbose \"**/*.{astro,css}\"",
 		"lint:css:fix": "npm run lint:css -- --fix",
 		"lint:md": "markdownlint-cli2",
 		"lint:md:fix": "npm run lint:md -- --fix",
@@ -33,14 +33,14 @@
 		"preview": "astro preview"
 	},
 	"lint-staged": {
-		"(*.astro|*.css|*.html)": [
-			"stylelint --max-warnings 0",
+		"(*.astro|*.css)": [
+			"stylelint",
 			"prettier --write"
 		],
 		"*.md": [
 			"markdownlint-cli2 --fix"
 		],
-		"!(*.astro|*.css|*.html|*.js|*.md)": [
+		"!(*.astro|*.css|*.md)": [
 			"prettier --write --ignore-unknown"
 		]
 	},
@@ -57,7 +57,7 @@
 		"stylelint": "16.14.1",
 		"stylelint-config-html": "1.1.0",
 		"stylelint-config-recess-order": "5.1.1",
-		"stylelint-config-standard": "36.0.1",
+		"stylelint-config-standard": "37.0.0",
 		"stylelint-plugin-defensive-css": "1.0.4"
 	}
 }
