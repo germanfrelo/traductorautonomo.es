@@ -25,8 +25,6 @@ export default {
 			{ ignoreFontFamilyNames: ["monospace"] }, // Don't report the 'font-family: monospace, monospace' declaration used in the CSS reset
 		],
 		// Unknown
-		"declaration-property-value-no-unknown": true,
-		"media-feature-name-value-no-unknown": true,
 		"no-unknown-animations": true,
 		"no-unknown-custom-media": true,
 		"no-unknown-custom-properties": true,
