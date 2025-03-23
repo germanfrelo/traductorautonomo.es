@@ -13,7 +13,7 @@ export default {
 	reportUnscopedDisables: true,
 	rules: {
 		/* Avoid errors
-		---------------------------------------- */
+		-------------------------------------------------- */
 		// Descending
 		"no-descending-specificity": [
 			true, // Already enabled in stylelint-config-recommended
@@ -33,7 +33,7 @@ export default {
 
 		/* Enforce conventions
 		(overrides rules from stylelint-config-standard)
-		---------------------------------------- */
+		-------------------------------------------------- */
 		// Empty lines
 		"declaration-empty-line-before": "never",
 		// Notation
@@ -48,7 +48,7 @@ export default {
 		"declaration-block-no-redundant-longhand-properties": null,
 
 		/* Plugin: use-defensive-css
-		---------------------------------------- */
+		-------------------------------------------------- */
 		"plugin/use-defensive-css": [
 			true,
 			{
@@ -58,7 +58,7 @@ export default {
 				"custom-property-fallbacks": false,
 				"flex-wrapping": true,
 				"scroll-chaining": true,
-				"scrollbar-gutter": false, // TODO: Check browser support at caniuse.com (~78% in Nov. 2024)
+				"scrollbar-gutter": true,
 				"vendor-prefix-grouping": true,
 			},
 		],
