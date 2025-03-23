@@ -1,0 +1,263 @@
+/**
+ * ======================================================================
+ * GLOBAL AND INHERITED STYLES
+ *
+ * Grouped by function based on:
+ * https://html.spec.whatwg.org/multipage/#toc-semantics
+ * ======================================================================
+ */
+
+/**
+ * ----------------------------------------------------------------------
+ * Global Custom Properties
+ * ----------------------------------------------------------------------
+ */
+
+:root {
+	/**
+	 * ----------------------------------------------------------------------
+	 * Typography
+	 * ----------------------------------------------------------------------
+	 */
+
+	--ff-base-fallback: ui-sans-serif, system-ui, -apple-system, "Segoe UI", "Roboto", "Helvetica", "Arial", sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+	--ff-base: "Poppins", var(--ff-base-fallback);
+	--fw-base-regular: 400;
+	--fw-base-medium: 500;
+	--fw-base-bold: 700;
+	--leading-base: 1.7;
+	--leading-small: 1.25;
+	--kerning-wide: 0.05ch;
+
+	/* Fluid Type Scale
+		   https://utopia.fyi/type/calculator?c=320,16,1.2,1440,19,1.25,5,1,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
+	--step--1: clamp(0.8333rem, 0.8rem + 0.1667vw, 0.95rem);
+	--step-0: clamp(1rem, 0.9464rem + 0.2679vw, 1.1875rem);
+	--step-1: clamp(1.2rem, 1.1188rem + 0.4063vw, 1.4844rem);
+	--step-2: clamp(1.44rem, 1.3213rem + 0.5935vw, 1.8555rem);
+	--step-3: clamp(1.728rem, 1.559rem + 0.8448vw, 2.3193rem);
+	--step-4: clamp(2.0736rem, 1.8377rem + 1.1794vw, 2.8992rem);
+	--step-5: clamp(2.4883rem, 2.1639rem + 1.6223vw, 3.624rem);
+
+	/* Fluid Spacing Scale
+		   https://utopia.fyi/space/calculator?c=320,16,1.125,1440,19,1.2,5,2,&s=0.6667,1.5|2.25|3.375|5.0625,3xs-xs|2xs-s|xs-m|s-l|m-xl|l-2xl|xl-3xl&g=s,l,xl,12 */
+
+	--space-xs: clamp(0.6875rem, 0.6518rem + 0.1786vw, 0.8125rem);
+	--space-s: clamp(1rem, 0.9464rem + 0.2679vw, 1.1875rem);
+	--space-m: clamp(1.5rem, 1.4107rem + 0.4464vw, 1.8125rem);
+	--space-l: clamp(2.25rem, 2.125rem + 0.625vw, 2.6875rem);
+	--space-xl: clamp(3.375rem, 3.1964rem + 0.8929vw, 4rem);
+	--space-2xl: clamp(5.0625rem, 4.7946rem + 1.3393vw, 6rem);
+
+	/* One-up pairs */
+	--space-xs-s: clamp(0.6875rem, 0.5446rem + 0.7143vw, 1.1875rem);
+	--space-s-m: clamp(1rem, 0.7679rem + 1.1607vw, 1.8125rem);
+	--space-m-l: clamp(1.5rem, 1.1607rem + 1.6964vw, 2.6875rem);
+	--space-l-xl: clamp(2.25rem, 1.75rem + 2.5vw, 4rem);
+	--space-xl-2xl: clamp(3.375rem, 2.625rem + 3.75vw, 6rem);
+
+	/* Custom pairs */
+	--space-xs-m: clamp(0.6875rem, 0.3661rem + 1.6071vw, 1.8125rem);
+	--space-s-l: clamp(1rem, 0.5179rem + 2.4107vw, 2.6875rem);
+	--space-m-xl: clamp(1.5rem, 0.7857rem + 3.5714vw, 4rem);
+	--space-l-2xl: clamp(2.25rem, 1.1786rem + 5.3571vw, 6rem);
+
+	/**
+	 * ----------------------------------------------------------------------
+	 * Layout
+	 * ----------------------------------------------------------------------
+	 */
+
+	--gutter: var(--space-m-l);
+	--max-content-size: 50rem;
+	--max-wide-size: 80rem;
+
+	/**
+	 * ----------------------------------------------------------------------
+	 * Appearance
+	 * ----------------------------------------------------------------------
+	 */
+
+	--color-scheme: light dark;
+	--color-base: hsl(215deg 100% 100%);
+	--color-base-2: hsl(42deg 50% 97%);
+	--color-contrast: hsl(215deg 25% 25%);
+	--color-contrast-2: hsl(215deg 10% 45%);
+	--color-accent: hsl(72deg 20% 35%);
+	--color-accent-2: hsl(72deg 20% 25%);
+	--radius-xs: 0.125em;
+
+	/**
+	 * ----------------------------------------------------------------------
+	 * Animation
+	 * ----------------------------------------------------------------------
+	 */
+
+	--tr-duration-and-timing-function: 0.1s ease-in;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		/* Colors */
+		--color-base: hsl(215deg 15% 6%);
+		--color-base-2: hsl(42deg 15% 9%);
+		--color-contrast: hsl(215deg 25% 90%);
+		--color-contrast-2: hsl(215deg 25% 70%);
+		--color-accent: hsl(72deg 20% 55%);
+		--color-accent-2: hsl(72deg 20% 65%);
+	}
+}
+
+/**
+ * ----------------------------------------------------------------------
+ * Root & Universal
+ * ----------------------------------------------------------------------
+ */
+
+* {
+	margin: 0;
+}
+
+html {
+	color-scheme: var(--color-scheme);
+}
+
+/**
+ * ----------------------------------------------------------------------
+ * Sections and Headings
+ * ----------------------------------------------------------------------
+ */
+
+body {
+	font-family: var(--ff-base);
+	font-size: var(--step-0);
+	font-weight: var(--fw-base-regular);
+	font-variant-ligatures: no-common-ligatures;
+	line-height: var(--leading-base);
+	color: var(--color-contrast);
+	background-color: var(--color-base);
+}
+
+body:has(> main) {
+	display: flex;
+	flex-direction: column;
+	min-block-size: 100vh;
+}
+
+body:has(> main) > main {
+	flex-grow: 1;
+}
+
+body:has(> main) > :is(header, footer) {
+	flex-shrink: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-weight: var(--fw-base-bold);
+	line-height: var(--leading-small);
+	text-wrap: balance;
+}
+
+h1,
+.h1 {
+	font-size: var(--step-5);
+	line-height: 1.1;
+}
+
+h2,
+.h2 {
+	font-size: var(--step-4);
+	line-height: 1.2;
+}
+
+h3,
+.h3 {
+	font-size: var(--step-3);
+	line-height: 1.3;
+}
+
+h4,
+.h4 {
+	font-size: var(--step-2);
+	line-height: 1.4;
+}
+
+h5,
+.h5 {
+	font-size: var(--step-1);
+	line-height: 1.5;
+}
+
+h6,
+.h6 {
+	font-size: var(--step-0);
+}
+
+/**
+ * ----------------------------------------------------------------------
+ * Grouping content
+ * ----------------------------------------------------------------------
+ */
+
+blockquote {
+	padding-inline-start: 1em;
+	text-align: start;
+	border-inline-start: 0.25em solid var(--color-accent);
+}
+
+figcaption {
+	text-align: start;
+}
+
+dl,
+ol,
+ul {
+	padding-inline-start: 1em;
+	text-align: start;
+}
+
+:is(dl, ol, ul):where(:not([class])) > li + li {
+	margin-block-start: var(--global-list-flow, 0.5em);
+}
+
+:is(dl, ol, ul):where(:not([class])) :is(dl, ol, ul) {
+	margin-block-start: var(--global-list-flow, 0.5em);
+}
+
+/* Remove list styles on ol and ul elements with a list role, which suggests default styling will be removed */
+[role="list"][class],
+[role="tablist"] {
+	padding-inline-start: 0;
+	list-style-type: none;
+}
+
+/**
+ * ----------------------------------------------------------------------
+ * Text-level semantics
+ * ----------------------------------------------------------------------
+ */
+
+:any-link {
+	color: var(--color-accent);
+}
+
+:any-link:is(:hover, :focus-visible) {
+	text-decoration-line: none;
+}
+
+b,
+strong {
+	font-weight: var(--fw-base-bold);
+}
+
+@media (max-width: 50rem) {
+	main {
+		--center-text: center;
+		--cluster-horizontal-alignment: center;
+	}
+}

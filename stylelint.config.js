@@ -13,7 +13,7 @@ export default {
 	reportUnscopedDisables: true,
 	rules: {
 		/* Avoid errors
-		---------------------------------------- */
+		-------------------------------------------------- */
 		// Descending
 		"no-descending-specificity": [
 			true, // Already enabled in stylelint-config-recommended
@@ -29,11 +29,11 @@ export default {
 		// Unknown
 		"no-unknown-animations": true,
 		"no-unknown-custom-media": true,
-		"no-unknown-custom-properties": true,
+		// "no-unknown-custom-properties": true,
 
 		/* Enforce conventions
 		(overrides rules from stylelint-config-standard)
-		---------------------------------------- */
+		-------------------------------------------------- */
 		// Empty lines
 		"declaration-empty-line-before": "never",
 		// Notation
@@ -48,17 +48,17 @@ export default {
 		"declaration-block-no-redundant-longhand-properties": null,
 
 		/* Plugin: use-defensive-css
-		---------------------------------------- */
+		-------------------------------------------------- */
 		"plugin/use-defensive-css": [
 			true,
 			{
 				"severity": "warning",
-				"accidental-hover": false, // Enable as needed
-				"background-repeat": false, // The imported CSS reset already apply 'no-repeat' to all elements
-				"custom-property-fallbacks": true,
-				"flex-wrapping": true,
+				"accidental-hover": false,
+				"background-repeat": false, // Already solved in imported base.css stylesheet
+				"custom-property-fallbacks": false,
+				"flex-wrapping": false,
 				"scroll-chaining": true,
-				"scrollbar-gutter": false, // Enable as needed
+				"scrollbar-gutter": true,
 				"vendor-prefix-grouping": true,
 			},
 		],

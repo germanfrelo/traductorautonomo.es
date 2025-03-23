@@ -1,0 +1,466 @@
+/* Document
+======================================== */
+
+/**
+ * 1. Use border box sizing by default, globally (opinionated).
+ * 2. Backgrounds do not repeat by default (opinionated).
+ * 3. Mask images do not repeat by default (opinionated).
+*/
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box; /* 1 */
+	background-repeat: no-repeat; /* 2 */
+	mask-repeat: no-repeat; /* 3 */
+}
+
+/*
+1. A prerequisite for the 'body' to be able to fill the viewport height (requires 'body { min-block-size: 100%; }', see 'body' rule below). Reference: https://codepen.io/germanfrelo/pen/jOGNpbj
+2. Use a sans serif font by default.
+3. The default 'normal' line-height is tightly spaced, but takes font-metrics into account, which is important for many fonts. Looser spacing may improve readability in latin type, but may cause problems in some scripts -- from cursive/fantasy fonts to Javanese, Persian, and CJK languages.
+4. Breaks words to prevent text overflow.
+5. Use a 4-space tab width instead of the default 8.
+6. Prevent WebKit-based browsers on iOS (all iOS browsers) from automatically increasing the default text size in landscape orientation. Reference:
+- https://kilianvalkhof.com/2022/css-html/your-css-reset-needs-text-size-adjust-probably/
+- https://css-tricks.com/your-css-reset-needs-text-size-adjust-probably/
+7. Prevent unwanted layout shifts caused by scrollbars when text get longer.
+*/
+
+html {
+	block-size: 100%; /* 1 */
+	scrollbar-gutter: stable; /* 2 */
+	font-family: sans-serif; /* 3 */
+	line-height: 1.5; /* 4 */
+	overflow-wrap: break-word; /* 5 */
+	tab-size: 4; /* 6 */
+	/* stylelint-disable-next-line property-no-vendor-prefix -- See https://caniuse.com/text-size-adjust */
+	-webkit-text-size-adjust: none; /* 7 */
+	text-size-adjust: none; /* 7 */
+}
+
+/*
+Smooth scrolling, but only when focused in the page to prevent unnaturally scrolling when tabbing though the results of a search.
+*/
+
+html:focus-within {
+	scroll-behavior: smooth;
+}
+
+/*
+When users prefer reduced motion:
+1. Remove fixed background attachment.
+2. Remove transitions.
+3. Remove animations/immediately jump any animation to the end point.
+4. Remove timed scrolling behaviors.
+*/
+
+@media (prefers-reduced-motion: reduce) {
+	*,
+	*::before,
+	*::after {
+		background-attachment: initial !important; /* 1 */
+		transition-delay: 0s !important; /* 2 */
+		transition-duration: 0s !important; /* 2 */
+		animation-duration: 1ms !important; /* 3 */
+		animation-delay: -1ms !important; /* 3 */
+		animation-iteration-count: 1 !important; /* 3 */
+		scroll-behavior: auto !important; /* 4 */
+	}
+
+	html:focus-within {
+		scroll-behavior: auto; /* 4 */
+	}
+}
+
+/*
+When scrolling to target elements, a reasonable spacing is added above them to ensure they remain visible, especially with sticky headers or similar. Adjust as needed.
+Reference: https://piccalil.li/blog/a-more-modern-css-reset/
+*/
+
+:target {
+	scroll-margin-block-start: 5em;
+}
+
+/* Sections
+======================================== */
+
+/*
+1. Makes 'body' at least as tall as the viewport height (requires 'html { block-size: 100%; }', see 'html' rule above). Reference: https://codepen.io/germanfrelo/pen/jOGNpbj
+2. Remove the tiny space around the edge of the page.
+*/
+
+body {
+	min-block-size: 100%; /* 1 */
+	margin: 0; /* 2 */
+}
+
+/*
+Correct the font size and margin on 'h1' elements within 'section' and 'article' contexts in Chrome, Firefox, and Safari.
+*/
+
+:where(h1) {
+	margin-block: 0.67em;
+	font-size: 2em;
+}
+
+/*
+The default 'normal' line-height is tightly spaced, but takes font-metrics into account, which is important for many fonts. Looser spacing may improve readability in latin type, but may cause problems in some scripts -- from cursive/fantasy fonts to Javanese, Persian, and CJK languages.
+*/
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	line-height: 1.25;
+}
+
+/*
+Switch to rem units for headings.
+*/
+
+h1 {
+	font-size: 2rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+}
+
+h3 {
+	font-size: 1.17rem;
+}
+
+h4 {
+	font-size: 1rem;
+}
+
+h5 {
+	font-size: 0.83rem;
+}
+
+h6 {
+	font-size: 0.67rem;
+}
+
+/* Grouping content
+======================================== */
+
+/*
+1. Correct the inheritance and scaling of font size in all browsers.
+2. Correct the odd 'em' font sizing in all browsers.
+3. Prevent overflow of the container.
+*/
+
+pre {
+	font-family: monospace, monospace; /* 1 */
+	font-size: 1em; /* 2 */
+	white-space: pre-wrap; /* 3 */
+}
+
+/*
+Sets a consistent and modern default look for 'hr':
+1. Reverts the default 'gray' color in Firefox and Safari to allow the text foreground color to be used as the border color.
+2. Removes all default '1px inset' borders to instead use a single border with a 'solid' style and a border width of '2px' to have the same height as before.
+*/
+
+hr {
+	color: inherit; /* 1 */
+	border: none; /* 2 */
+	border-block-start: 2px solid; /* 2 */
+}
+
+/*
+The default 'normal' line-height is tightly spaced, but takes font-metrics into account, which is important for many fonts. Looser spacing may improve readability in latin type, but may cause problems in some scripts -- from cursive/fantasy fonts to Javanese, Persian, and CJK languages.
+*/
+
+figcaption {
+	line-height: 1.375;
+}
+
+/*
+Replace '40px' indents with '2.5em' indents.
+*/
+
+:where(blockquote, figure) {
+	margin-inline: 2.5em;
+}
+
+:where(ul, ol, menu) {
+	padding-inline-start: 2.5em;
+}
+
+:where(dd) {
+	margin-inline-start: 2.5em;
+}
+
+/* Text-level semantics
+======================================== */
+
+/*
+Add the correct font weight in Chrome and Safari.
+*/
+
+b,
+strong {
+	font-weight: bolder;
+}
+
+/*
+1. Correct the inheritance and scaling of font size in all browsers.
+2. Correct the odd 'em' font sizing in all browsers.
+*/
+
+code,
+kbd,
+samp {
+	font-family: monospace, monospace; /* 1 */
+	font-size: 1em; /* 2 */
+}
+
+/* Embedded content
+======================================== */
+
+/*
+1. Block display is usually what we want.
+2. Responsive by default.
+3. The 'vertical-align' removes strange space-below in case authors overwrite the 'display' value.
+*/
+
+img,
+svg,
+video,
+canvas,
+audio,
+iframe,
+embed,
+object {
+	display: block; /* 1 */
+	max-inline-size: 100%; /* 2 */
+	vertical-align: middle; /* 3 */
+}
+
+/*
+The display is inline by default, but that's not the expected behavior. This can interfere with proper layout and aspect-ratio handling.
+1. Remove the unnecessary wrapping 'picture', while maintaining contents.
+2. Source elements have nothing to display, so we hide them entirely.
+*/
+
+picture {
+	display: contents; /* 1 */
+}
+
+source {
+	display: none; /* 2 */
+}
+
+/*
+Maintain intrinsic aspect ratios when 'max-inline-size' is applied ('iframe', 'embed, and 'object' are also embedded, but have no intrinsic ratio, so their 'block-size' needs to be set explicitly).
+*/
+
+img,
+svg,
+video,
+canvas {
+	block-size: auto;
+}
+
+/*
+There is no good reason elements default to 300px, and audio files are unlikely to come with a width attribute.
+*/
+
+audio {
+	inline-size: 100%;
+}
+
+/*
+Change the fill color to match the text color.
+*/
+
+svg:not([fill]) {
+	fill: currentcolor;
+}
+
+/*
+Change the border appearance.
+*/
+
+iframe {
+	border-color: currentcolor;
+	border-style: solid;
+}
+
+/* Tabular data
+======================================== */
+
+/*
+1. Collapse border spacing.
+2. Correct table border color inheritance in Chrome and Safari.
+*/
+
+table {
+	border-collapse: collapse; /* 1 */
+	border-color: currentcolor; /* 2 */
+}
+
+/*
+The default 'normal' line-height is tightly spaced, but takes font-metrics into account, which is important for many fonts. Looser spacing may improve readability in latin type, but may cause problems in some scripts -- from cursive/fantasy fonts to Javanese, Persian, and CJK languages.
+*/
+
+caption {
+	line-height: 1.375;
+}
+
+/*
+Make 'th' alignment consistent with 'td' alignment.
+*/
+
+th {
+	text-align: start;
+}
+
+/*
+Add paddings and borders to table cells.
+*/
+
+:where(th, td) {
+	padding-block: 0.25em;
+	padding-inline: 0.5em;
+	border: 1px solid;
+}
+
+/* Forms
+======================================== */
+
+/*
+1. Remove the margin on controls in all browsers.
+2. Add typography inheritance.
+*/
+
+button,
+input,
+select,
+textarea {
+	margin: 0; /* 1 */
+	font: inherit; /* 2 */
+	word-spacing: inherit; /* 2 */
+	letter-spacing: inherit; /* 2 */
+}
+
+/*
+Sets a default placeholder color that is accessible and consistent across browsers for both light (default) and dark color schemes.
+Reference: https://codepen.io/germanfrelo/pen/EaYwZdb
+*/
+
+::placeholder {
+	color: #757575;
+}
+
+@supports (color: light-dark(black, white)) {
+	::placeholder {
+		color: light-dark(hsl(0deg 0% 46%), hsl(0deg 0% 65%));
+	}
+}
+
+/*
+Change font properties to 'inherit' in Safari.
+*/
+
+::file-selector-button {
+	font: inherit;
+}
+
+/*
+1. Remove the margin.
+2. Change the border appearance.
+*/
+
+fieldset {
+	margin-inline: 0; /* 1 */
+	border-color: currentcolor; /* 2 */
+	border-style: solid; /* 2 */
+}
+
+/*
+The default 'normal' line-height is tightly spaced, but takes font-metrics into account, which is important for many fonts. Looser spacing may improve readability in latin type, but may cause problems in some scripts -- from cursive/fantasy fonts to Javanese, Persian, and CJK languages.
+*/
+
+label,
+legend {
+	line-height: 1.375;
+}
+
+/*
+Responsive by default by restricting sizing to the page width.
+*/
+
+input,
+select,
+textarea {
+	max-inline-size: 100%;
+}
+
+/*
+Set 'vertical-align' to middle.
+*/
+
+[type="color" i],
+[type="range" i] {
+	vertical-align: middle;
+}
+
+/*
+Maintain 'hidden' behavior when overriding 'display' values.
+*/
+
+[hidden] {
+	display: none;
+}
+
+/*
+Change the cursor on busy elements.
+*/
+
+[aria-busy="true" i] {
+	cursor: progress;
+}
+
+/*
+Change the cursor on disabled, not-editable, or otherwise inoperable elements.
+*/
+
+[disabled],
+[aria-disabled="true" i] {
+	cursor: not-allowed;
+}
+
+/*
+Change the display on visually hidden accessible elements.
+*/
+
+[aria-hidden="false" i][hidden] {
+	display: initial;
+}
+
+[aria-hidden="false" i][hidden]:not(:focus) {
+	/* Visually hidden styles */
+	position: absolute !important;
+	inline-size: 1px !important;
+	block-size: 1px !important;
+	overflow: hidden !important;
+	white-space: nowrap !important;
+	clip-path: inset(50%) !important;
+}
+
+/* Interactive elements
+======================================== */
+
+/*
+Change the cursor to feel it's interactive.
+*/
+
+summary {
+	cursor: default;
+}

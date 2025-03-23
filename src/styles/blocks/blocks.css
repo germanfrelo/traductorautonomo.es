@@ -1,0 +1,204 @@
+/**
+ * ======================================================================
+ * BLOCKS
+ *
+ * Based on: https://cube.fyi/block.html.
+ * Sorted by block name in alphabetical order.
+ * ======================================================================
+ */
+
+/**
+ * ----------------------------------------------------------------------
+ * Button
+ * Ref: https://piccalil.li/blog/how-i-build-a-button-component/
+ * ----------------------------------------------------------------------
+ */
+
+.button {
+	--button-bg: var(--color-contrast);
+	--button-border-color: var(--button-bg);
+	--button-border-style: solid;
+	--button-border-width: 2px;
+	--button-color: var(--color-base);
+	--button-gap: 0.75em;
+	--button-hover-bg: var(--color-contrast-2);
+	--button-hover-border-color: var(--button-hover-bg);
+	--button-hover-color: var(--color-base);
+	--button-padding: 0.75em 1.25em;
+	--button-radius: var(--radius-xs);
+	display: inline-flex;
+	flex-wrap: wrap;
+	gap: var(--button-gap);
+	align-items: center;
+	justify-content: center;
+	padding: var(--button-padding);
+	font-size: var(--button-font-size, 1em);
+	font-weight: var(--button-font-weight, var(--fw-base-medium, normal));
+	line-height: var(--leading-small);
+	color: var(--button-color);
+	text-align: center;
+	letter-spacing: var(--kerning-wide);
+	text-decoration: none;
+	background-color: var(--button-bg);
+	border-color: var(--button-border-color);
+	border-style: var(--button-border-style);
+	border-width: var(--button-border-width);
+	border-radius: var(--button-radius);
+}
+
+.button:hover {
+	color: var(--button-hover-color);
+	background-color: var(--button-hover-bg);
+	border-color: var(--button-hover-border-color);
+}
+
+.button:focus-visible {
+	outline-width: var(--button-outline-width, var(--button-border-width));
+	outline-style: var(--button-outline-style, var(--button-border-style));
+	outline-color: var(--button-outline-color, var(--button-border-color));
+	outline-offset: var(--button-outline-offset, calc(var(--button-border-width) * 2));
+}
+
+.button:active {
+	transform: scale(99%);
+}
+
+.button[data-button-variant="primary"] {
+	--button-bg: var(--color-accent);
+	--button-border-color: var(--button-bg);
+	--button-color: var(--color-base);
+	--button-hover-bg: var(--color-accent-2);
+	--button-hover-border-color: var(--button-hover-bg);
+	--button-hover-color: var(--color-base);
+}
+
+.button[data-ghost-button] {
+	--button-bg: transparent;
+	--button-border-color: currentcolor;
+	--button-color: currentcolor;
+}
+
+.button > :is(img, svg) {
+	flex-shrink: 0;
+	inline-size: auto;
+	block-size: var(--button-icon-size, 1.5em);
+}
+
+/**
+ * ----------------------------------------------------------------------
+ * Hero
+ * ----------------------------------------------------------------------
+ */
+
+.hero {
+	--center-max-inline-size: var(--max-wide-size, 80rem);
+	--stack-space: var(--space-m-l);
+	display: flex;
+	gap: var(--gutter, var(--space-s-l));
+	align-items: center;
+}
+
+.hero > * {
+	flex-grow: 1;
+	flex-basis: 24rem;
+}
+
+.hero img {
+	inline-size: 25rem;
+	aspect-ratio: 1;
+	object-fit: cover;
+	object-position: bottom;
+	transition: border-radius 1s ease-out;
+	animation: morph 3s ease-in-out infinite both alternate;
+}
+
+.switcher.hero > img {
+	flex-grow: 0;
+	margin-inline: auto;
+}
+
+@keyframes morph {
+	0% {
+		border-radius: 60% 40% 50% 48% / 48% 31% 69% 52%;
+	}
+
+	100% {
+		border-radius: 40% 60% 50% 52% / 31% 48% 52% 69%;
+	}
+}
+
+@container (max-width: 60em) {
+	.hero {
+		--center-text: center;
+		--cluster-horizontal-alignment: center;
+		--stack-align-items: center;
+		flex-direction: column-reverse;
+	}
+}
+
+/**
+ * ----------------------------------------------------------------------
+ * Overlay
+ * ----------------------------------------------------------------------
+ */
+
+.overlay {
+	border-image: fill 0 linear-gradient(#0003, #000);
+}
+
+/**
+ * ----------------------------------------------------------------------
+ * Post
+ * ----------------------------------------------------------------------
+ */
+
+.post {
+	--sidebar-content-min-width: 60%;
+	--sidebar-target-width: clamp(16rem, 30vi, 30rem);
+	--gutter: var(--space-xl);
+	container-type: inline-size;
+}
+
+/**
+ * ----------------------------------------------------------------------
+ * Prose
+ * ----------------------------------------------------------------------
+ */
+
+.prose {
+	--sidebar-content-min-width: 60%;
+	--sidebar-target-width: clamp(16rem, 30vi, 30rem);
+	--gutter: var(--space-xl);
+	container-type: inline-size;
+}
+
+/**
+ * ----------------------------------------------------------------------
+ * Region
+ * ----------------------------------------------------------------------
+ */
+
+.region {
+	padding-block: var(--region-space, var(--space-xl-2xl));
+}
+
+.region:nth-child(even).full-background-slanted {
+	--full-bg-color: var(--color-base);
+}
+
+.region:nth-child(odd).full-background-slanted {
+	--full-bg-color: var(--color-base-2);
+}
+
+/**
+ * ----------------------------------------------------------------------
+ * Site Footer
+ * ----------------------------------------------------------------------
+ */
+
+.site-footer {
+	padding-block: var(--space-xl-2xl);
+	font-size: var(--step--1);
+	text-align: center;
+	background-color: var(--color-base-2);
+}

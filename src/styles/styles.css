@@ -1,0 +1,22 @@
+/**
+ * ======================================================================
+ * Based on CUBE CSS methodology: https://cube.fyi
+ *
+ * Another references:
+ * -
+ * ======================================================================
+ */
+
+@layer base, fonts, global, composition, utility, blocks;
+
+/* GLOBAL CSS */
+
+@import url("./global/base.css") layer(base);
+@import url("./global/fonts.css") layer(fonts);
+@import url("./global/global.css") layer(global);
+
+/* CUBE CSS */
+
+@import url("./composition/composition.css") layer(composition);
+@import url("./utility/utility.css") layer(utility);
+@import url("./blocks/blocks.css") layer(blocks);
