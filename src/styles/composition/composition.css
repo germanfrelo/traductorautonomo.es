@@ -12,6 +12,20 @@
 
 /**
  * ----------------------------------------------------------------------
+ * Center
+ * ----------------------------------------------------------------------
+ */
+
+.center {
+	box-sizing: content-box;
+	max-inline-size: var(--center-max-inline-size, var(--max-content-size, 80ch));
+	padding-inline: var(--center-padding-inline, var(--gutter, 1em));
+	margin-inline: auto;
+	text-align: var(--center-text, inherit);
+}
+
+/**
+ * ----------------------------------------------------------------------
  * Cluster
  * ----------------------------------------------------------------------
  */
@@ -82,6 +96,7 @@
 	block-size: auto;
 	padding-block-end: var(--scroll-bar-offset, 0);
 	margin-inline: auto;
+	/* stylelint-disable-next-line plugin/use-defensive-css -- Intended */
 	overflow-x: auto;
 	overflow-y: hidden;
 	overscroll-behavior: contain;
@@ -96,7 +111,7 @@
 	margin-inline-start: var(--reel-calculated-space);
 }
 
-.reel: :-webkit-scrollbar {
+.reel::-webkit-scrollbar {
 	block-size: var(--scroll-bar-size);
 }
 
@@ -172,7 +187,8 @@
 .stack {
 	display: flex;
 	flex-direction: column;
-	justify-content: flex-start;
+	align-items: var(--stack-align-items, initial);
+	justify-content: var(--stack-justify-content, initial);
 }
 
 .stack > * {

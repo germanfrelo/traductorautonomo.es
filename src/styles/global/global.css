@@ -70,7 +70,7 @@
 
 	--gutter: var(--space-m-l);
 	--max-content-size: 50rem;
-	--max-wide-size: 90rem;
+	--max-wide-size: 80rem;
 
 	/**
 	 * ----------------------------------------------------------------------
@@ -135,7 +135,6 @@ body {
 	font-variant-ligatures: no-common-ligatures;
 	line-height: var(--leading-base);
 	color: var(--color-contrast);
-	text-align: center;
 	background-color: var(--color-base);
 }
 
@@ -256,8 +255,9 @@ strong {
 	font-weight: var(--fw-base-bold);
 }
 
-@media (min-width: 50rem) {
+@media (max-width: 50rem) {
 	main {
-		text-align: start;
+		--center-text: center;
+		--cluster-horizontal-alignment: center;
 	}
 }

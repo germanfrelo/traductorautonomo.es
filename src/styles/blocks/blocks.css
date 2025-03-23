@@ -37,8 +37,8 @@
 	line-height: var(--leading-small);
 	color: var(--button-color);
 	text-align: center;
-	text-decoration: none;
 	letter-spacing: var(--kerning-wide);
+	text-decoration: none;
 	background-color: var(--button-bg);
 	border-color: var(--button-border-color);
 	border-style: var(--button-border-style);
@@ -91,11 +91,16 @@
  */
 
 .hero {
-	--flow-space: var(--space-m-l);
-	--switcher-vertical-alignment: center;
-	--switcher-target-container-width: 24rem;
-	--switcher-threshold: 24rem;
-	--switcher-gap: var(--space-l);
+	--center-max-inline-size: var(--max-wide-size, 80rem);
+	--stack-space: var(--space-m-l);
+	display: flex;
+	gap: var(--gutter, var(--space-s-l));
+	align-items: center;
+}
+
+.hero > * {
+	flex-grow: 1;
+	flex-basis: 24rem;
 }
 
 .hero img {
@@ -119,6 +124,15 @@
 
 	100% {
 		border-radius: 40% 60% 50% 52% / 31% 48% 52% 69%;
+	}
+}
+
+@container (max-width: 60em) {
+	.hero {
+		--center-text: center;
+		--cluster-horizontal-alignment: center;
+		--stack-align-items: center;
+		flex-direction: column-reverse;
 	}
 }
 

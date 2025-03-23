@@ -29,7 +29,7 @@ export default {
 		// Unknown
 		"no-unknown-animations": true,
 		"no-unknown-custom-media": true,
-		"no-unknown-custom-properties": true,
+		// "no-unknown-custom-properties": true,
 
 		/* Enforce conventions
 		(overrides rules from stylelint-config-standard)
@@ -56,7 +56,7 @@ export default {
 				"accidental-hover": false,
 				"background-repeat": false, // Already solved in imported base.css stylesheet
 				"custom-property-fallbacks": false,
-				"flex-wrapping": true,
+				"flex-wrapping": false,
 				"scroll-chaining": true,
 				"scrollbar-gutter": true,
 				"vendor-prefix-grouping": true,
