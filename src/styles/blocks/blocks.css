@@ -93,14 +93,11 @@
 .hero {
 	--center-max-inline-size: var(--max-wide-size, 80rem);
 	--stack-space: var(--space-m-l);
+	--cluster-column-gap: var(--space-s-m);
+	--cluster-row-gap: var(--space-s-m);
 	display: flex;
 	gap: var(--gutter, var(--space-s-l));
 	align-items: center;
-}
-
-.hero > * {
-	flex-grow: 1;
-	flex-basis: 24rem;
 }
 
 .hero img {
@@ -127,7 +124,7 @@
 	}
 }
 
-@container (max-width: 60em) {
+@container (max-width: 60rem) {
 	.hero {
 		--center-text: center;
 		--cluster-horizontal-alignment: center;
@@ -168,7 +165,7 @@
 .prose {
 	--sidebar-content-min-width: 60%;
 	--sidebar-target-width: clamp(16rem, 30vi, 30rem);
-	--gutter: var(--space-xl);
+	--stack-space: var(--space-l-xl);
 	container-type: inline-size;
 }
 
