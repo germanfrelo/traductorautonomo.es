@@ -2,7 +2,6 @@
 	"recommendations": [
 		// Astro
 		"astro-build.astro-vscode",
-		"unifiedjs.vscode-mdx",
 		// Formatting
 		"EditorConfig.EditorConfig",
 		"esbenp.prettier-vscode",
