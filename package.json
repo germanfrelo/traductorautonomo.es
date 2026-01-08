@@ -45,7 +45,7 @@
 		]
 	},
 	"dependencies": {
-		"astro": "5.16.6"
+		"astro": "5.16.7"
 	},
 	"devDependencies": {
 		"husky": "9.1.7",
