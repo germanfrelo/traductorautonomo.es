@@ -40,8 +40,3 @@ updates:
       semver-patch-days: 3
       semver-minor-days: 7
       semver-major-days: 14
-    # Skip Astro v6+ for the moment.
-    ignore:
-      - dependency-name: "astro"
-        update-types: ["version-update:semver-major"]
-    
