@@ -1,0 +1,19 @@
+# GitHub Dependency Review Action
+# Scans pull requests for dependency changes and raises an error if any vulnerabilities or invalid licenses are being introduced.
+# Repo: https://github.com/actions/dependency-review-action
+
+name: Dependency Review
+on: [pull_request]
+permissions:
+  contents: read
+  pull-requests: write
+jobs:
+  dependency-review:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v6.0.2
+      - name: Dependency Review
+        uses: actions/dependency-review-action@v4.9.0
+        with:
+          comment-summary-in-pr: always
