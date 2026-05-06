@@ -14,11 +14,10 @@
 		"type": "git",
 		"url": "https://github.com/germanfrelo/traductorautonomo.es.git"
 	},
-	"license": "MIT",
+	"license": "UNLICENSED",
 	"author": "Germán Freixinós",
 	"type": "module",
 	"scripts": {
-		"astro": "astro",
 		"build": "astro build",
 		"dev": "astro dev",
 		"format": "prettier --write .",
