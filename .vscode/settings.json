@@ -25,5 +25,8 @@
 		"source.fixAll.markdownlint": "explicit",
 		"source.fixAll.stylelint": "explicit",
 		"source.sortImports": "explicit"
-	}
+	},
+
+	// Spell checker
+	"cSpell.language": "en,fr"
 }

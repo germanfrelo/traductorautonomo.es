@@ -8,6 +8,8 @@
 		// Linting
 		"DavidAnson.vscode-markdownlint",
 		"dbaeumer.vscode-eslint",
-		"stylelint.vscode-stylelint"
+		"stylelint.vscode-stylelint",
+		// Spelling
+		"streetsidesoftware.code-spell-checker-french"
 	]
 }
